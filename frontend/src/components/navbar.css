@@ -1,0 +1,304 @@
+:root {
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --secondary-color: #06b6d4;
+  --accent-color: #f97316;
+  --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-light: linear-gradient(120deg, #e0f2fe 0%, #dbeafe 100%);
+  --text-dark: #1e293b;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Main Navbar Container */
+.NavContainer {
+  background: linear-gradient(to right, #ffffff, #f8fafc);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.NavContainer::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-bg);
+  opacity: 0.7;
+}
+
+.NavContainer nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  padding: 0 25px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Logo Styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: auto;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 5px 0;
+}
+
+.logo-container img {
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-container:hover img {
+  transform: scale(1.02);
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  margin-left: auto;
+}
+
+.nav-links li {
+  position: relative;
+  margin: 0 6px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Button Styling */
+.NavContainer button {
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 14px;
+  transition: var(--transition);
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.NavContainer button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+  z-index: -1;
+}
+
+.NavContainer button:hover {
+  color: var(--primary-color);
+}
+
+.NavContainer button:hover::before {
+  width: 80%;
+}
+
+/* Special Button Styles */
+.NavContainer button.home {
+  background: linear-gradient(120deg, rgba(99, 102, 241, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%);
+  color: var(--primary-color);
+}
+
+.NavContainer button.admin {
+  background: linear-gradient(120deg, rgba(236, 72, 153, 0.1) 0%, rgba(219, 39, 119, 0.1) 100%);
+  color: #db2777;
+}
+
+.NavContainer button.postNews {
+  background: linear-gradient(120deg, rgba(6, 182, 212, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%);
+  color: var(--secondary-color);
+}
+
+.NavContainer button.contact-Us {
+  background: linear-gradient(120deg, rgba(249, 115, 22, 0.1) 0%, rgba(234, 88, 12, 0.1) 100%);
+  color: var(--accent-color);
+}
+
+/* Active State */
+.NavContainer button.active {
+  background-color: rgba(99, 102, 241, 0.15);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Dropdown Container */
+.dropdown-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-container > button {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-container > button::after {
+  content: "▼";
+  font-size: 9px;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+  color: var(--primary-color);
+}
+
+.dropdown-container.open > button::after {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropDown {
+  position: absolute;
+  top: 100%;
+  min-width: 200px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 101;
+  margin-top: 5px;
+  animation: fadeIn 0.3s ease;
+  right: 0;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.dropDown::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-bg);
+}
+
+.dropDown button {
+  color: var(--text-dark);
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 14px;
+  border: none;
+  background: none;
+  width: 100%;
+  transition: var(--transition);
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.dropDown button:last-child {
+  border-bottom: none;
+}
+
+.dropDown button:hover {
+  background: linear-gradient(to right, rgba(99, 102, 241, 0.05), rgba(99, 102, 241, 0.1));
+  padding-left: 20px;
+}
+
+/* Animation for dropdown appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulsing effect for active buttons */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 850px) {
+  .NavContainer nav {
+    padding: 0 15px;
+  }
+  
+  .NavContainer button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+  
+  .nav-links li {
+    margin: 0 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .NavContainer nav {
+    flex-direction: row;
+    height: auto;
+    padding: 12px 15px;
+    flex-wrap: wrap;
+  }
+
+  .logo-container {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 5px;
+    height: auto;
+  }
+
+  .dropDown {
+    position: absolute;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    width: auto;
+    min-width: 160px;
+  }
+  
+  .NavContainer button::before {
+    bottom: 2px;
+  }
+}

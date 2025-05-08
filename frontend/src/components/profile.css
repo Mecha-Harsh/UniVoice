@@ -1,0 +1,120 @@
+/* Main container */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    padding: 40px 20px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffffff, #e0d4f7);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Central card that holds profile info + news */
+.profile-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(93, 63, 211, 0.15);
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+/* Headings */
+.profile-card h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #5e3bc4;
+}
+
+.profile-card h3 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #4b2991;
+}
+
+/* User info text */
+.profile-card p {
+    font-size: 1.1rem;
+    margin: 6px 0;
+    color: #444;
+}
+
+/* News grid layout */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Card styling (assumes Card component handles its own look too) */
+.card {
+    background: #fff;
+    border: 1px solid #e5d9f5;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(93, 63, 211, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(93, 63, 211, 0.2);
+}
+
+/* Back button */
+.back-button {
+    margin-top: 30px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    font-size: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background: linear-gradient(to right, #501fb9, #1c62e8);
+    transform: scale(1.05);
+}
+
+/* Optional: Logout button styling */
+.logout-button {
+    background: linear-gradient(to right, #b24592, #f15f79);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    font-size: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+    background: linear-gradient(to right, #933274, #dd4a5c);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .profile-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .profile-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .profile-card p {
+        font-size: 1rem;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}

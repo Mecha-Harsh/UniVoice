@@ -1,0 +1,111 @@
+.cards {
+    width: 99.8%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  /* Default image style */
+  .Clg_Image {
+    display: block;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1300px;
+    height: auto;
+  }
+  
+  /* Container to hold the rotating images */
+  .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+    height: 500px;
+    margin: 35px auto;
+    overflow: hidden;
+  }
+  
+  /* Slide-in animation for the new image */
+  .Clg_Image_cards {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1300px;
+    height: 500px;
+    border: 2px solid black;
+    border-radius: 8px;
+    animation: slideIn 1s;
+  }
+  
+  /* Slide-in effect for new image */
+  @keyframes slideIn {
+    0% {
+      opacity: 1;
+      transform: translateX(100%); /* Start from right */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0); /* End at original position */
+    }
+  }
+  
+  /* Slide-out effect for previous image */
+  .slideOut {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1300px;
+    height: 500px;
+    animation: slideOut 1s;
+  }
+  
+  /* Slide-out animation */
+  @keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0); /* Starting position */
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100%); /* Exit to left */
+    }
+  }
+  
+  /* Image description - stays on the left */
+  .image-description {
+    position: absolute;
+    bottom: 30px;
+    left: 30px; /* Stick to the left */
+    width: 80%;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.6); /* Dark background to improve readability */
+    color: #fff; /* White text */
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  /* Fade-in animation for text */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px); /* Start from slightly left */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  

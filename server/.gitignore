@@ -1,0 +1,18 @@
+# Ignore node_modules folders
+server/node_modules/
+frontend/node_modules/
+
+# Ignore all .env files (regardless of location)
+*.env
+
+# OR if you want to be very specific:
+server/.env
+frontend/.env
+src/.env
+
+# Ignore log files
+*.log
+
+# Ignore OS system files
+.DS_Store
+Thumbs.db
